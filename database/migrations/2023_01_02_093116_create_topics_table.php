@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('topics', function (Blueprint $table) {
             $table->id();
             $table->string('title');
-            $table->string('docs');
+            $table->text('docs');
             $table->foreignId("skill_id")->constrained()->onDelete('cascade');
             $table->timestamps();
             $table->softDeletes();

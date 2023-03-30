@@ -17,6 +17,7 @@ class AuthenticatedSessionController extends Controller
      */
     public function create()
     {
+        // Redirect::setIntendedUrl(url()->previous());
         return view('auth.login');
     }
 
@@ -32,7 +33,7 @@ class AuthenticatedSessionController extends Controller
 
         $request->session()->regenerate();
 
-        return redirect()->intended(RouteServiceProvider::HOME);
+        // return redirect()->intended(RouteServiceProvider::HOME);
 
         // // $input = $request->all();
 
@@ -43,13 +44,13 @@ class AuthenticatedSessionController extends Controller
 
         // if(auth()->attempt(array('email' => $input['email'], 'password' => $input['password'])))
         // {
-        //     if (auth()->user()->is_user == 0) {
-        //         return redirect()->route('dashboard');
-        //     }elseif (auth()->user()->is_admin == 1) {
-        //         return redirect()->route('admin.home');
-        //     }else{
-        //         return redirect()->route('login');
-        //     }
+            if (auth()->user()->user_role == 0) {
+                return redirect()->route('final');
+            }elseif (auth()->user()->user_role == 1) {
+                return redirect()->route('admin.index');
+            }else{
+                return redirect()->route('login');
+            }
         // }else{
         //     return redirect()->route('login')
         //         ->with('error','Email-Address And Password Are Wrong.');
@@ -70,6 +71,6 @@ class AuthenticatedSessionController extends Controller
 
         $request->session()->regenerateToken();
 
-        return redirect('/');
+        return redirect(url()->previous());
     }
 }

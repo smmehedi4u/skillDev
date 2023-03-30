@@ -11,9 +11,10 @@ class Skill extends Model
 
     protected $fillable = [
         'name',
+        'image',
     ];
-    public function skill()
+    public function topics()
     {
-        return $this->hasMany(Skill::class);
+        return $this->hasMany(Topic::class);
     }
 }

@@ -44,28 +44,22 @@
                     </div>
                     <p>Tempor erat elitr at rebum at at clita aliquyam consetetur. Diam dolor diam ipsum et, tempor voluptua sit consetetur sit. Aliquyam diam amet diam et eos sadipscing labore. Clita erat ipsum et lorem et sit, sed stet no labore lorem sit. Sanctus clita duo justo et tempor consetetur takimata eirmod, dolores takimata consetetur invidunt magna dolores aliquyam dolores dolore. Amet erat amet et magna</p>
                     <div class="row pt-3 mx-0">
-                        <div class="col-3 px-0">
-                            <div class="bg-success text-center p-4">
-                                <h1 class="text-white" data-toggle="counter-up">123</h1>
-                                <h6 class="text-uppercase text-white">Available<span class="d-block">Subjects</span></h6>
-                            </div>
-                        </div>
-                        <div class="col-3 px-0">
+                        <div class="col-4 px-0">
                             <div class="bg-primary text-center p-4">
-                                <h1 class="text-white" data-toggle="counter-up">1234</h1>
+                                <h1 class="text-white" data-toggle="counter-up">5</h1>
                                 <h6 class="text-uppercase text-white">Online<span class="d-block">Courses</span></h6>
                             </div>
                         </div>
-                        <div class="col-3 px-0">
+                        <div class="col-4 px-0">
                             <div class="bg-secondary text-center p-4">
-                                <h1 class="text-white" data-toggle="counter-up">123</h1>
+                                <h1 class="text-white" data-toggle="counter-up">3</h1>
                                 <h6 class="text-uppercase text-white">Skilled<span class="d-block">Instructors</span></h6>
                             </div>
                         </div>
-                        <div class="col-3 px-0">
+                        <div class="col-4 px-0">
                             <div class="bg-warning text-center p-4">
-                                <h1 class="text-white" data-toggle="counter-up">1234</h1>
-                                <h6 class="text-uppercase text-white">Happy<span class="d-block">Students</span></h6>
+                                <h1 class="text-white" data-toggle="counter-up">6</h1>
+                                <h6 class="text-uppercase text-white">Happy<span class="d-block">Users</span></h6>
                             </div>
                         </div>
                     </div>
@@ -85,32 +79,52 @@
                         <h6 class="d-inline-block position-relative text-secondary text-uppercase pb-2">Why Choose Us?</h6>
                         <h1 class="display-4">Why You Should Start Learning with Us?</h1>
                     </div>
-                    <p class="mb-4 pb-2">Aliquyam accusam clita nonumy ipsum sit sea clita ipsum clita, ipsum dolores amet voluptua duo dolores et sit ipsum rebum, sadipscing et erat eirmod diam kasd labore clita est. Diam sanctus gubergren sit rebum clita amet.</p>
+                    <p class="mb-4 pb-2">
+                        With MEIRAS, students can access a wide range of courses that are developed by industry
+                        and professionals. The platform provides an interactive and engaging learning experience
+                        that includes quizzes, assessments, and projects. Upon completion of the courses, students
+                        will earn certificates that can be added to their profiles and shared with potential employers.
+                        Students can also submit their feedback which is heavily considered for the upcoming update.
+                    </p>
                     <div class="d-flex mb-3">
                         <div class="btn-icon bg-primary mr-4">
-                            <i class="fa fa-2x fa-graduation-cap text-white"></i>
+                            <i class="fa fa-2x fa-book-reader text-white"></i>
                         </div>
                         <div class="mt-n1">
-                            <h4>Skilled Instructors</h4>
-                            <p>Labore rebum duo est Sit dolore eos sit tempor eos stet, vero vero clita magna kasd no nonumy et eos dolor magna ipsum.</p>
+                            <h4>Free Courses</h4>
+                            <p>
+                                MEIRAS provides numerous free courses of various genres.
+                                All the courses are in the palm of your hand.
+                                So grab this opportunity to enhance your skill to a different level.
+                            </p>
                         </div>
                     </div>
                     <div class="d-flex mb-3">
                         <div class="btn-icon bg-secondary mr-4">
-                            <i class="fa fa-2x fa-certificate text-white"></i>
+                            <i class="fa fa-2x fa-pen-nib text-white"></i>
                         </div>
                         <div class="mt-n1">
-                            <h4>International Certificate</h4>
-                            <p>Labore rebum duo est Sit dolore eos sit tempor eos stet, vero vero clita magna kasd no nonumy et eos dolor magna ipsum.</p>
+                            <h4>Self Test</h4>
+                            <p>
+                                MEIRAS provides you with the opportunity to test yourself.
+                                This feature allows you to take small quizzes about the topic
+                                and courses which will be used for the assessment of your accomplishments.
+                                Challenge yourself with these questions
+                            </p>
                         </div>
                     </div>
                     <div class="d-flex">
                         <div class="btn-icon bg-warning mr-4">
-                            <i class="fa fa-2x fa-book-reader text-white"></i>
+                            <i class="fa fa-2x fa-user text-white"></i>
                         </div>
                         <div class="mt-n1">
-                            <h4>Online Classes</h4>
-                            <p class="m-0">Labore rebum duo est Sit dolore eos sit tempor eos stet, vero vero clita magna kasd no nonumy et eos dolor magna ipsum.</p>
+                            <h4>Create profile</h4>
+                            <p class="m-0">
+                                MEIRAS contains a profile of each student. This profile holds the accomplishments
+                                of a student by denoting the number of courses completed successfully and
+                                the corresponding results. It acts as a document for all of your achievements
+                                which can be used for future life. So start developing your profile today.
+                            </p>
                         </div>
                     </div>
                 </div>
@@ -126,7 +140,34 @@
 
 
     <!-- Courses Start -->
-    <div class="container-fluid px-0 py-5">
+    {{-- <div class="container-fluid py-5">
+        <div class="container py-5">
+            <div class="row mx-0 justify-content-center">
+                <div class="col-lg-8">
+                    <div class="section-title text-center position-relative mb-5">
+                        <h6 class="d-inline-block position-relative text-secondary text-uppercase pb-2">Our Courses</h6>
+                        <h1 class="display-4">Checkout New Releases Of Our Courses</h1>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                @foreach($courses as $course)
+                <div class="col-lg-3 col-md-6 pb-4">
+                    <a class="courses-list-item position-relative d-block overflow-hidden mb-2" href="{{}}">
+                        <img class="img-fluid" src="{{asset('image/'.$course->image)}}" alt="">
+                        <div class="courses-text">
+                            <h4 class="text-center text-white px-3">{{$course->name}}</h4>
+                        </div>
+                    </a>
+                </div>
+                @endforeach
+            </div>
+    </div>
+</div> --}}
+    <!-- Courses End -->
+
+     <!-- Courses Start -->
+     <div class="container-fluid px-0 py-5">
         <div class="row mx-0 justify-content-center pt-5">
             <div class="col-lg-6">
                 <div class="section-title text-center position-relative mb-4">
@@ -139,75 +180,60 @@
             <div class="courses-item position-relative">
                 <img class="img-fluid" src="img/courses-1.jpg" alt="">
                 <div class="courses-text">
-                    <h4 class="text-center text-white px-3">Web design & development courses for beginners</h4>
+                    <h4 class="text-center text-white px-3">Programming with C for beginners</h4>
                     <div class="border-top w-100 mt-3">
-                        <div class="d-flex justify-content-between p-4">
-                            <span class="text-white"><i class="fa fa-user mr-2"></i>Jhon Doe</span>
-                            <span class="text-white"><i class="fa fa-star mr-2"></i>4.5 <small>(250)</small></span>
-                        </div>
+
                     </div>
                     <div class="w-100 bg-white text-center p-4" >
-                        <a class="btn btn-primary" href="detail.html">Course Detail</a>
+                        <a class="btn btn-primary" href="/course">Course Detail</a>
                     </div>
                 </div>
             </div>
             <div class="courses-item position-relative">
                 <img class="img-fluid" src="img/courses-2.jpg" alt="">
                 <div class="courses-text">
-                    <h4 class="text-center text-white px-3">Web design & development courses for beginners</h4>
+                    <h4 class="text-center text-white px-3">Programming with JAVA</h4>
                     <div class="border-top w-100 mt-3">
-                        <div class="d-flex justify-content-between p-4">
-                            <span class="text-white"><i class="fa fa-user mr-2"></i>Jhon Doe</span>
-                            <span class="text-white"><i class="fa fa-star mr-2"></i>4.5 <small>(250)</small></span>
-                        </div>
+
                     </div>
                     <div class="w-100 bg-white text-center p-4" >
-                        <a class="btn btn-primary" href="detail.html">Course Detail</a>
+                        <a class="btn btn-primary" href="/course">Course Detail</a>
                     </div>
                 </div>
             </div>
             <div class="courses-item position-relative">
                 <img class="img-fluid" src="img/courses-3.jpg" alt="">
                 <div class="courses-text">
-                    <h4 class="text-center text-white px-3">Web design & development courses for beginners</h4>
+                    <h4 class="text-center text-white px-3">Learning English</h4>
                     <div class="border-top w-100 mt-3">
-                        <div class="d-flex justify-content-between p-4">
-                            <span class="text-white"><i class="fa fa-user mr-2"></i>Jhon Doe</span>
-                            <span class="text-white"><i class="fa fa-star mr-2"></i>4.5 <small>(250)</small></span>
-                        </div>
+
                     </div>
                     <div class="w-100 bg-white text-center p-4" >
-                        <a class="btn btn-primary" href="detail.html">Course Detail</a>
+                        <a class="btn btn-primary" href="/course">Course Detail</a>
                     </div>
                 </div>
             </div>
             <div class="courses-item position-relative">
                 <img class="img-fluid" src="img/courses-4.jpg" alt="">
                 <div class="courses-text">
-                    <h4 class="text-center text-white px-3">Web design & development courses for beginners</h4>
+                    <h4 class="text-center text-white px-3">General Knowledge</h4>
                     <div class="border-top w-100 mt-3">
-                        <div class="d-flex justify-content-between p-4">
-                            <span class="text-white"><i class="fa fa-user mr-2"></i>Jhon Doe</span>
-                            <span class="text-white"><i class="fa fa-star mr-2"></i>4.5 <small>(250)</small></span>
-                        </div>
+
                     </div>
                     <div class="w-100 bg-white text-center p-4" >
-                        <a class="btn btn-primary" href="detail.html">Course Detail</a>
+                        <a class="btn btn-primary" href="/course">Course Detail</a>
                     </div>
                 </div>
             </div>
             <div class="courses-item position-relative">
                 <img class="img-fluid" src="img/courses-5.jpg" alt="">
                 <div class="courses-text">
-                    <h4 class="text-center text-white px-3">Web design & development courses for beginners</h4>
+                    <h4 class="text-center text-white px-3">Application Design & Development courses for beginners</h4>
                     <div class="border-top w-100 mt-3">
-                        <div class="d-flex justify-content-between p-4">
-                            <span class="text-white"><i class="fa fa-user mr-2"></i>Jhon Doe</span>
-                            <span class="text-white"><i class="fa fa-star mr-2"></i>4.5 <small>(250)</small></span>
-                        </div>
+
                     </div>
                     <div class="w-100 bg-white text-center p-4" >
-                        <a class="btn btn-primary" href="detail.html">Course Detail</a>
+                        <a class="btn btn-primary" href="/course">Course Detail</a>
                     </div>
                 </div>
             </div>
@@ -216,19 +242,17 @@
                 <div class="courses-text">
                     <h4 class="text-center text-white px-3">Web design & development courses for beginners</h4>
                     <div class="border-top w-100 mt-3">
-                        <div class="d-flex justify-content-between p-4">
-                            <span class="text-white"><i class="fa fa-user mr-2"></i>Jhon Doe</span>
-                            <span class="text-white"><i class="fa fa-star mr-2"></i>4.5 <small>(250)</small></span>
-                        </div>
                     </div>
                     <div class="w-100 bg-white text-center p-4" >
-                        <a class="btn btn-primary" href="detail.html">Course Detail</a>
+                        <a class="btn btn-primary" href="/course">Course Detail</a>
                     </div>
                 </div>
             </div>
         </div>
+
     </div>
     <!-- Courses End -->
+
 
 
     <!-- Team Start -->
@@ -240,10 +264,10 @@
             </div>
             <div class="owl-carousel team-carousel position-relative" style="padding: 0 30px;">
                 <div class="team-item">
-                    <img class="img-fluid w-100" src="img/team-1.jpg" alt="">
+                    <img class="img-fluid w-100" src="img/irfan.png" alt="">
                     <div class="bg-light text-center p-4">
-                        <h5 class="mb-3">Instructor Name</h5>
-                        <p class="mb-2">Web Design & Development</p>
+                        <h5 class="mb-3">Irfan Khan</h5>
+                        <p class="mb-2">Software Engineer</p>
                         <div class="d-flex justify-content-center">
                             <a class="mx-1 p-1" href="#"><i class="fab fa-twitter"></i></a>
                             <a class="mx-1 p-1" href="#"><i class="fab fa-facebook-f"></i></a>
@@ -254,10 +278,10 @@
                     </div>
                 </div>
                 <div class="team-item">
-                    <img class="img-fluid w-100" src="img/team-2.jpg" alt="">
+                    <img class="img-fluid w-100" src="img/asmina.png" alt="">
                     <div class="bg-light text-center p-4">
-                        <h5 class="mb-3">Instructor Name</h5>
-                        <p class="mb-2">Web Design & Development</p>
+                        <h5 class="mb-3">Asmina Airin</h5>
+                        <p class="mb-2">Web Designer</p>
                         <div class="d-flex justify-content-center">
                             <a class="mx-1 p-1" href="#"><i class="fab fa-twitter"></i></a>
                             <a class="mx-1 p-1" href="#"><i class="fab fa-facebook-f"></i></a>
@@ -268,24 +292,10 @@
                     </div>
                 </div>
                 <div class="team-item">
-                    <img class="img-fluid w-100" src="img/team-3.jpg" alt="">
+                    <img class="img-fluid w-100" src="img/mehedi.png" alt="">
                     <div class="bg-light text-center p-4">
-                        <h5 class="mb-3">Instructor Name</h5>
-                        <p class="mb-2">Web Design & Development</p>
-                        <div class="d-flex justify-content-center">
-                            <a class="mx-1 p-1" href="#"><i class="fab fa-twitter"></i></a>
-                            <a class="mx-1 p-1" href="#"><i class="fab fa-facebook-f"></i></a>
-                            <a class="mx-1 p-1" href="#"><i class="fab fa-linkedin-in"></i></a>
-                            <a class="mx-1 p-1" href="#"><i class="fab fa-instagram"></i></a>
-                            <a class="mx-1 p-1" href="#"><i class="fab fa-youtube"></i></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="team-item">
-                    <img class="img-fluid w-100" src="img/team-4.jpg" alt="">
-                    <div class="bg-light text-center p-4">
-                        <h5 class="mb-3">Instructor Name</h5>
-                        <p class="mb-2">Web Design & Development</p>
+                        <h5 class="mb-3">Mehedi Hasan</h5>
+                        <p class="mb-2">Software Developer</p>
                         <div class="d-flex justify-content-center">
                             <a class="mx-1 p-1" href="#"><i class="fab fa-twitter"></i></a>
                             <a class="mx-1 p-1" href="#"><i class="fab fa-facebook-f"></i></a>
@@ -307,9 +317,16 @@
                     <div class="col-lg-5 mb-5 mb-lg-0">
                         <div class="section-title position-relative mb-4">
                             <h6 class="d-inline-block position-relative text-secondary text-uppercase pb-2">Testimonial</h6>
-                            <h1 class="display-4">What Say Our Students</h1>
+                            <h1 class="display-4">What Say About Our MEIRAS</h1>
                         </div>
-                        <p class="m-0">Dolor est dolores et nonumy sit labore dolores est sed rebum amet, justo duo ipsum sanctus dolore magna rebum sit et. Diam lorem ea sea at. Nonumy et at at sed justo est nonumy tempor. Vero sea ea eirmod, elitr ea amet diam ipsum at amet. Erat sed stet eos ipsum diam</p>
+                        <p class="m-0">
+                            Users can willingly provide their feedback about the course or any other specific topic.
+                            The user comment section can provide valuable feedback and insights into the user experience
+                            of the MEIRAS platform. Users can share their opinions, suggestions, and concerns about the
+                            platform, which can be used to improve the platform and make it more user-friendly.
+                            This feedback can also help to identify any issues or bugs that may be affecting the platform's functionality,
+                            allowing for prompt resolution.
+                        </p>
                     </div>
                     <div class="col-lg-7">
                         <div class="owl-carousel testimonial-carousel">
@@ -317,10 +334,10 @@
                                 <i class="fa fa-3x fa-quote-left text-primary mb-4"></i>
                                 <p>Sed et elitr ipsum labore dolor diam, ipsum duo vero sed sit est est ipsum eos clita est ipsum. Est nonumy tempor at kasd. Sed at dolor duo ut dolor, et justo erat dolor magna sed stet amet elitr duo lorem</p>
                                 <div class="d-flex flex-shrink-0 align-items-center mt-4">
-                                    <img class="img-fluid mr-4" src="img/testimonial-2.jpg" alt="">
+                                    <img class="img-fluid mr-4" src="img/samsulsir.jpg" alt="">
                                     <div>
-                                        <h5>Student Name</h5>
-                                        <span>Web Design</span>
+                                        <h5>Md Shamsul Islam</h5>
+                                        <span>Assistant Professor,FEC</span>
                                     </div>
                                 </div>
                             </div>
@@ -328,10 +345,10 @@
                                 <i class="fa fa-3x fa-quote-left text-primary mb-4"></i>
                                 <p>Sed et elitr ipsum labore dolor diam, ipsum duo vero sed sit est est ipsum eos clita est ipsum. Est nonumy tempor at kasd. Sed at dolor duo ut dolor, et justo erat dolor magna sed stet amet elitr duo lorem</p>
                                 <div class="d-flex flex-shrink-0 align-items-center mt-4">
-                                    <img class="img-fluid mr-4" src="img/testimonial-1.jpg" alt="">
+                                    <img class="img-fluid mr-4" src="img/sumonsir.jpg" alt="">
                                     <div>
-                                        <h5>Student Name</h5>
-                                        <span>Web Design</span>
+                                        <h5>Md Suman Reza</h5>
+                                        <span>Lecturer, FEC</span>
                                     </div>
                                 </div>
                             </div>
@@ -355,7 +372,7 @@
                                 </div>
                                 <div class="mt-n1">
                                     <h4>Our Location</h4>
-                                    <p class="m-0">123 Street, New York, USA</p>
+                                    <p class="m-0">Dr Kazi Mutaher Hossen Road, Kamolapur, Faridpur</p>
                                 </div>
                             </div>
                             <div class="d-flex align-items-center mb-5">
@@ -364,7 +381,7 @@
                                 </div>
                                 <div class="mt-n1">
                                     <h4>Call Us</h4>
-                                    <p class="m-0">+012 345 6789</p>
+                                    <p class="m-0">+01405-715961</p>
                                 </div>
                             </div>
                             <div class="d-flex align-items-center">
@@ -373,7 +390,7 @@
                                 </div>
                                 <div class="mt-n1">
                                     <h4>Email Us</h4>
-                                    <p class="m-0">info@example.com</p>
+                                    <p class="m-0">meiras@gmail.com</p>
                                 </div>
                             </div>
                         </div>

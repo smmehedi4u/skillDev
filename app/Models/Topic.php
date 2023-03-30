@@ -4,16 +4,22 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Tonysm\RichTextLaravel\Models\Traits\HasRichText;
 
 class Topic extends Model
 {
-    use HasFactory;
+    use HasFactory ;
+
 
     protected $fillable = [
         'title',
-        'docs',
+        "docs",
         'skill_id',
     ];
+
+    // protected $richTextFields = [
+    //     'docs',
+    // ];
 
     public function question()
     {

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Topic;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -14,11 +15,12 @@ class HomeController extends Controller
 
     public function index()
     {
-        return view('admin.adminHome');
+        //$topics = Topic::all();
+        return view('admin.home',compact("topics"));
     }
 
     public function first()
     {
-        return view('dashboard');
+        return redirect(route("user.dashboard"));
     }
 }
