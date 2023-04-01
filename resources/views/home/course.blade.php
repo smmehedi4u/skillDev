@@ -13,21 +13,23 @@
                 <p class="m-0 text-uppercase">Courses</p>
             </div>
             <div class="mx-auto mb-5" style="width: 100%; max-width: 600px;">
-                <div class="input-group">
-                    <div class="input-group-prepend">
-                        <button class="btn btn-outline-light bg-white text-body px-4 dropdown-toggle" type="button" data-toggle="dropdown"
-                            aria-haspopup="true" aria-expanded="false">Courses</button>
-                        <div class="dropdown-menu">
-                            <a class="dropdown-item" href="#">Courses 1</a>
-                            <a class="dropdown-item" href="#">Courses 2</a>
-                            <a class="dropdown-item" href="#">Courses 3</a>
+                <form action="{{route('course')}}" method="get">
+                    <div class="input-group">
+                        {{-- <div class="input-group-prepend">
+                            <button class="btn btn-outline-light bg-white text-body px-4 dropdown-toggle" type="button" data-toggle="dropdown"
+                                aria-haspopup="true" aria-expanded="false">Courses</button>
+                            <div class="dropdown-menu">
+                                <a class="dropdown-item" href="#">Courses 1</a>
+                                <a class="dropdown-item" href="#">Courses 2</a>
+                                <a class="dropdown-item" href="#">Courses 3</a>
+                            </div>
+                        </div> --}}
+                        <input type="text" value="{{old('q',$q)}}" name="q" class="form-control border-light" style="padding: 30px 25px;" placeholder="Search Course ..">
+                        <div class="input-group-append">
+                            <button class="btn btn-secondary px-4 px-lg-5">Search</button>
                         </div>
                     </div>
-                    <input type="text" class="form-control border-light" style="padding: 30px 25px;" placeholder="Keyword">
-                    <div class="input-group-append">
-                        <button class="btn btn-secondary px-4 px-lg-5">Search</button>
-                    </div>
-                </div>
+                </form>
             </div>
         </div>
     </div>
@@ -49,7 +51,7 @@
                 @foreach($courses as $course)
                 <div class="col-lg-4 col-md-6 pb-4">
                     <a class="courses-list-item position-relative d-block overflow-hidden mb-2" href="{{route('detail',$course->id)}}">
-                        <img class="img-fluid" src="{{asset('image/'.$course->image)}}" alt="">
+                        <img class="img-fluid" src="{{asset('image/'.$course->image)}}" alt="" style="width: 500px; length: 360px;" >
                         <div class="courses-text">
                             <h4 class="text-center text-white px-3">{{$course->name}}</h4>
                         </div>

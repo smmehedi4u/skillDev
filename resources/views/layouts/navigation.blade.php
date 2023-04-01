@@ -22,6 +22,12 @@
                     {{ __('Course') }}
                 </x-nav-link>
                 </div>
+
+                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                    <x-nav-link :href="route('admin.inbox.index')" :active="request()->routeIs('admin.inbox.index')">
+                        {{ __('Inbox') }}
+                    </x-nav-link>
+                    </div>
             </div>
 
             <!-- Settings Dropdown -->
@@ -80,6 +86,12 @@
         <div class="pt-2 pb-3 space-y-1">
             <x-responsive-nav-link :href="route('admin.course.index')" :active="request()->routeIs('admin.course.index')">
                 {{ __('Courses') }}
+            </x-responsive-nav-link>
+        </div>
+
+        <div class="pt-2 pb-3 space-y-1">
+            <x-responsive-nav-link :href="route('admin.inbox.index')" :active="request()->routeIs('admin.inbox.index')">
+                {{ __('Inbox') }}
             </x-responsive-nav-link>
         </div>
 

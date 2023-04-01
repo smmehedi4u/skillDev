@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\InboxController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\TopicController;
 use App\Http\Controllers\SkillController;
@@ -33,11 +34,17 @@ Route::view('about', 'home.about');
 Route::view('feature', 'home.feature');
 Route::view('team', 'home.team');
 Route::view('testimonial', 'home.testimonial');
+Route::view('contact', 'home.contact');
 
-Route::get('/course', function () {
-    $courses = Skill::paginate(6);
+Route::post("/inbox/create",[InboxController::class,"store"])->name("inbox.store");
+
+Route::get('/course', function (Request $request) {
+    $courses = Skill::when($request->q,function($query) use($request){
+        return $query->where("name","like","%".$request->q."%");
+    })->paginate(6);
+    $q = $request->q;
     //dd($books);
-    return view('home.course',compact("courses"));
+    return view('home.course',compact("courses","q"));
 })->name('course');
 
 
@@ -78,6 +85,8 @@ Route::name("admin.")->prefix("admin")->middleware(['auth', 'is_admin'])->group(
         Route::get('/edit/{id}', [TopicController::class, 'edit'])->name('edit');
         Route::post('/edit/{id}', [TopicController::class, 'update'])->name('update');
         Route::delete('/delete/{id}', [TopicController::class, 'destroy'])->name('destroy');
+
+        Route::resource('inbox',InboxController::class)->except(['store']);
 
         Route::name("course.")->prefix("course")->group(function () {
             Route::get('/', [SkillController::class, 'index'])->name('index');

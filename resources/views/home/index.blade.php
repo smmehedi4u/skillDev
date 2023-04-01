@@ -8,8 +8,9 @@
             <h1 class="text-white mt-4 mb-4">Learn From Home</h1>
             <h1 class="text-white display-1 mb-5">Education Courses</h1>
             <div class="mx-auto mb-5" style="width: 100%; max-width: 600px;">
+                <form action="{{route('course')}}" method="get">
                 <div class="input-group">
-                    <div class="input-group-prepend">
+                    {{-- <div class="input-group-prepend">
                         <button class="btn btn-outline-light bg-white text-body px-4 dropdown-toggle" type="button" data-toggle="dropdown"
                             aria-haspopup="true" aria-expanded="false">Courses</button>
                         <div class="dropdown-menu">
@@ -17,12 +18,13 @@
                             <a class="dropdown-item" href="#">Courses 2</a>
                             <a class="dropdown-item" href="#">Courses 3</a>
                         </div>
-                    </div>
-                    <input type="text" class="form-control border-light" style="padding: 30px 25px;" placeholder="Keyword">
+                    </div> --}}
+                    <input type="text" name="q" class="form-control border-light" style="padding: 30px 25px;" placeholder="Search Course ..">
                     <div class="input-group-append">
                         <button class="btn btn-secondary px-4 px-lg-5">Search</button>
                     </div>
                 </div>
+            </form>
             </div>
         </div>
     </div>
@@ -40,9 +42,19 @@
                 <div class="col-lg-7">
                     <div class="section-title position-relative mb-4">
                         <h6 class="d-inline-block position-relative text-secondary text-uppercase pb-2">About Us</h6>
-                        <h1 class="display-4">First Choice For Online Education Anywhere</h1>
+                        <h1 class="display-4">Online Education Anywhere</h1>
                     </div>
-                    <p>Tempor erat elitr at rebum at at clita aliquyam consetetur. Diam dolor diam ipsum et, tempor voluptua sit consetetur sit. Aliquyam diam amet diam et eos sadipscing labore. Clita erat ipsum et lorem et sit, sed stet no labore lorem sit. Sanctus clita duo justo et tempor consetetur takimata eirmod, dolores takimata consetetur invidunt magna dolores aliquyam dolores dolore. Amet erat amet et magna</p>
+                    <p>
+                        MEIRAS is a web-based platform that is flexible, accessible, and personalized.
+                        Students can learn at their own pace, from anywhere with an internet connection.
+                        The software offers a range of courses that are designed to help students develop
+                        a variety of skills, from programming and graphic design to leadership and public
+                        speaking. It provides a comprehensive learning experience for students who are seeking
+                        to acquire new skills and knowledge. The platform also provides tools for tracking progress
+                        and achievement, allowing students to build a personalized learning portfolio that they can
+                        showcase to potential employers or educational institutions. Overall, MEIRAS offers a modern
+                        and convenient solution to the limitations of traditional classroom-based learning.
+                    </p>
                     <div class="row pt-3 mx-0">
                         <div class="col-4 px-0">
                             <div class="bg-primary text-center p-4">
@@ -401,20 +413,36 @@
                             <h1 class="display-4">Send Us A Message</h1>
                         </div>
                         <div class="contact-form">
-                            <form>
+                            @if (session()->has('successInbox'))
+                                <div class="alert alert-success">{{session('successInbox')}}</div>
+                            @endif
+                            <form method="post" action="{{route('inbox.store')}}">
+                                @csrf
                                 <div class="row">
                                     <div class="col-6 form-group">
-                                        <input type="text" class="form-control border-top-0 border-right-0 border-left-0 p-0" placeholder="Your Name" required="required">
+                                        <input type="text" name="name" value="{{old('name')}}" class="form-control border-top-0 border-right-0 border-left-0 p-0" placeholder="Your Name"  required="required">
+                                            @error("name")
+                                            <div class="text-danger">{{$message}}</div>
+                                            @enderror
                                     </div>
                                     <div class="col-6 form-group">
-                                        <input type="email" class="form-control border-top-0 border-right-0 border-left-0 p-0" placeholder="Your Email" required="required">
+                                        <input type="email" name="email" value="{{old('email')}}" class="form-control border-top-0 border-right-0 border-left-0 p-0" placeholder="Your Email" required="required">
+                                        @error("email")
+                                        <div class="text-danger">{{$message}}</div>
+                                        @enderror
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <input type="text" class="form-control border-top-0 border-right-0 border-left-0 p-0" placeholder="Subject" required="required">
+                                    <input type="text" name="subject" value="{{old('subject')}}" class="form-control border-top-0 border-right-0 border-left-0 p-0" placeholder="Subject" required="required">
+                                    @error("subject")
+                                    <div class="text-danger">{{$message}}</div>
+                                    @enderror
                                 </div>
                                 <div class="form-group">
-                                    <textarea class="form-control border-top-0 border-right-0 border-left-0 p-0" rows="5" placeholder="Message" required="required"></textarea>
+                                    <textarea name="message" value="{{old('message')}}" class="form-control border-top-0 border-right-0 border-left-0 p-0" rows="5" placeholder="Message" required="required"></textarea>
+                                    @error("message")
+                                    <div class="text-danger">{{$message}}</div>
+                                    @enderror
                                 </div>
                                 <div>
                                     <button class="btn btn-primary py-3 px-5" type="submit">Send Message</button>

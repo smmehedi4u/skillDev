@@ -4,7 +4,7 @@
 
 <div class="row">
     <div class="col-lg-3">
-        <aside class="main-sidebar sidebar-dark-primary elevation-4">
+        <aside class="main-sidebar sidebar-dark-primary elevation-4">  
             <!-- Sidebar -->
             <div class="sidebar p-3">
               <!-- Sidebar Menu -->
