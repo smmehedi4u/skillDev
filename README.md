@@ -29,8 +29,8 @@ Follow these steps to install and set up the project locally.
 
 Clone the Repository
 
-git clone https://github.com/your-username/skill-development-project.git
-cd skill-development-project
+git clone [https://github.com/your-username/skill-development-project.git](https://github.com/smmehedi4u/skillDev)
+cd skillDev
 
 Install Dependencies Make sure you have Composer installed, then run:
 
