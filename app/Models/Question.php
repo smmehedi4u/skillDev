@@ -12,6 +12,8 @@ class Question extends Model
     protected $fillable = [
         'question',
         'topic_id',
+        'option1',
+        'option2',
         'answer',
     ];
 
@@ -19,7 +21,7 @@ class Question extends Model
         {
             return $this->belongsTo(Topic::class);
         }
-        
+
 }
 
 

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Skill;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
 
 class SkillController extends Controller
@@ -28,7 +29,7 @@ class SkillController extends Controller
     public function create()
     {
         $skills = Skill::all();
-        return view('admin.course.create',compact('skills'));
+        return view('admin.course.create', compact('skills'));
     }
 
     /**
@@ -61,7 +62,6 @@ class SkillController extends Controller
             $image->move($destinationPath, $profileImage);
 
             $input['image'] = "$profileImage";
-
         }
 
         Skill::create($input);
@@ -89,7 +89,7 @@ class SkillController extends Controller
     public function edit(Skill $skill, $id)
     {
         $skills = Skill::find($id);
-        return view('admin.course.edit',compact('skills'));
+        return view('admin.course.edit', compact('skills'));
     }
 
     /**
@@ -103,7 +103,7 @@ class SkillController extends Controller
     {
         $validator = Validator::make($request->all(), [
             'name' => 'required|max:255',
-            // 'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
 
         if ($validator->fails()) {
@@ -111,26 +111,32 @@ class SkillController extends Controller
                 ->withErrors($validator)
                 ->withInput();
         }
-        $input = $request->all();
-// dd($input);
-        if ($image = $request->file('image')) {
-            $destinationPath = 'image/';
-            $profileImage = date('YmdHis') . "." . $image->getClientOriginalExtension();
-            $image->move($destinationPath, $profileImage);
-            $input['image'] = "$profileImage";
 
-        }else{
-            unset($input['image']);
-        }
-        // dd($input);
-        // $ok = Skill::where("id",$skill->id)->update(["name"=>$request->name]);
+                // Handle image update
+                $imageName = $skill->image; // Keep the old image by default
 
-        // dd($ok);
-        $skill->name = $request->name;
-        $skill->save();
+            if ($request->hasFile('image')) {
+                // If the user uploaded a new image, delete the old one and upload the new image
+                if ($skill->image) {
+                    if (file_exists(public_path('image/' . $skill->image))) {
+                        unlink(public_path('image/' . $skill->image));
+                    }
+                }
 
-        return redirect()->route('admin.course.index')->with('success', 'Course added successfully!');
+                // Store new image
+                $imageName = time().'.'.$request->image->extension();
+                $request->image->move(public_path('image'), $imageName);
+                }
+
+        // Update both name and image fields
+        $skill->update([
+            'name' => $request->name,
+            'image' => $imageName,
+        ]);
+
+        return redirect()->route('admin.course.index')->with('success', 'Course updated successfully!');
     }
+
 
     /**
      * Remove the specified resource from storage.
@@ -138,10 +144,10 @@ class SkillController extends Controller
      * @param  \App\Models\Skill  $skill
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Skill $skill,$id)
+    public function destroy(Skill $skill, $id)
     {
         $skills = Skill::find($id);
         $skills->delete();
-        return redirect()->route('admin.course.index')->with('success','Course has been deleted successfully');
+        return redirect()->route('admin.course.index')->with('success', 'Course has been deleted successfully');
     }
 }

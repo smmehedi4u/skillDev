@@ -31,7 +31,7 @@ class TopicController extends Controller
     public function create()
     {
         $courses = Skill::all();
-        return view('admin.create',compact("courses"));
+        return view('admin.create', compact("courses"));
     }
 
     /**
@@ -45,7 +45,10 @@ class TopicController extends Controller
         $validator = Validator::make($request->all(), [
             'title' => 'required|max:255',
             'docs' => 'required',
-            // 'question' => 'required',
+            'question' => 'required',
+            'option1' => 'required|max:255',
+            'option2' => 'required|max:255',
+            'answer' => 'required|max:255',
         ]);
 
         if ($validator->fails()) {
@@ -53,69 +56,56 @@ class TopicController extends Controller
                 ->withErrors($validator)
                 ->withInput();
         }
+
         DB::transaction(function () use($request) {
-        $topic = new Topic();
+            $topic = new Topic();
+            $topic->title = $request->title;
+            $topic->docs = $request->docs;
+            $topic->skill_id = $request->skill_id;
+            $topic->save();
 
-        $topic->title = $request->title;
-        $topic->docs = $request->docs;
-        $topic->skill_id = $request->skill_id;
-        // $topic->question = $request->question;
-        $topic->save();
-
-        $q = new Question();
-
-        $q->topic_id = $topic->id;
-        $q->question = $request->question;
-        $q->answer = $request->answer;
-        $q->save();
+            $q = new Question();
+            $q->topic_id = $topic->id;
+            $q->question = $request->question;
+            $q->option1 = $request->option1;
+            $q->option2 = $request->option2;
+            $q->answer = $request->answer;
+            $q->save();
         });
 
-
-        return redirect()->route('admin.index')->with('success','Topic created successfully!');
-
-        return back();
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Topic  $topic
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Topic $topic)
-    {
-        // return view('notice.show',compact('notices'));
+        return redirect()->route('admin.index')->with('success', 'Topic created successfully!');
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Topic  $topic
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
     {
-        $topic =Topic::find($id);
-        $questions = Question::where("topic_id",$topic->id)->first();
-        // dd($topic->toArray());
+        $topic = Topic::find($id);
+        $questions = Question::where("topic_id", $topic->id)->first();
         $skills = Skill::all();
-        return view('admin.edit',compact('skills','questions',"topic"));
+        return view('admin.edit', compact('skills', 'questions', "topic"));
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Topic  $topic
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
     {
-
         $validator = Validator::make($request->all(), [
             'title' => 'required|max:255',
             'docs' => 'required',
             'question' => 'required',
+            'option1' => 'required|max:255',
+            'option2' => 'required|max:255',
+            'answer' => 'required|max:255',
         ]);
 
         if ($validator->fails()) {
@@ -124,27 +114,38 @@ class TopicController extends Controller
                 ->withInput();
         }
 
-        $topic = Topic::find($id)->update(["title"=>$request->title,"docs"=>$request->docs,"question"=>$request->question,"answer"=>$request->answer]);
+        DB::transaction(function () use ($request, $id) {
+            $topic = Topic::find($id);
+            $topic->update([
+                "title" => $request->title,
+                "docs" => $request->docs,
+            ]);
 
-        // $topic->title = $request->title;
-        // $topic->docs = $request->docs;
-        // $topic->question = $request->question;
-        // $topic->save()
+            $question = Question::where("topic_id", $topic->id)->first();
+            $question->update([
+                'question' => $request->question,
+                'option1' => $request->option1,
+                'option2' => $request->option2,
+                'answer' => $request->answer,
+            ]);
+        });
 
-        return redirect()->route('admin.index')->with('success','Topics updated successfully!');
-        return back();
+        return redirect()->route('admin.index')->with('success', 'Topic updated successfully!');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Topic  $topic
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Topic $topic,$id)
+    public function destroy($id)
     {
         $topic = Topic::find($id);
         $topic->delete();
-        return redirect()->route('admin.index')->with('success','Topic has been deleted successfully');
+        return redirect()->route('admin.index')->with('success', 'Topic has been deleted successfully');
     }
+
+    
+
 }

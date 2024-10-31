@@ -1,16 +1,15 @@
 @extends('layouts.master')
 
 @section('content')
-
     <!-- Header Start -->
     <div class="jumbotron jumbotron-fluid position-relative overlay-bottom" style="margin-bottom: 90px;">
         <div class="container text-center my-5 py-5">
             <h1 class="text-white mt-4 mb-4">Learn From Home</h1>
             <h1 class="text-white display-1 mb-5">Education Courses</h1>
             <div class="mx-auto mb-5" style="width: 100%; max-width: 600px;">
-                <form action="{{route('course')}}" method="get">
-                <div class="input-group">
-                    {{-- <div class="input-group-prepend">
+                <form action="{{ route('course') }}" method="get">
+                    <div class="input-group">
+                        {{-- <div class="input-group-prepend">
                         <button class="btn btn-outline-light bg-white text-body px-4 dropdown-toggle" type="button" data-toggle="dropdown"
                             aria-haspopup="true" aria-expanded="false">Courses</button>
                         <div class="dropdown-menu">
@@ -19,19 +18,20 @@
                             <a class="dropdown-item" href="#">Courses 3</a>
                         </div>
                     </div> --}}
-                    <input type="text" name="q" class="form-control border-light" style="padding: 30px 25px;" placeholder="Search Course ..">
-                    <div class="input-group-append">
-                        <button class="btn btn-secondary px-4 px-lg-5">Search</button>
+                        <input type="text" name="q" class="form-control border-light" style="padding: 30px 25px;"
+                            placeholder="Search Course ..">
+                        <div class="input-group-append">
+                            <button class="btn btn-secondary px-4 px-lg-5">Search</button>
+                        </div>
                     </div>
-                </div>
-            </form>
+                </form>
             </div>
         </div>
     </div>
     <!-- Header End -->
 
     <!-- About Start -->
-       <div class="container-fluid py-5">
+    <div class="container-fluid py-5">
         <div class="container py-5">
             <div class="row">
                 <div class="col-lg-5 mb-5 mb-lg-0" style="min-height: 500px;">
@@ -163,7 +163,7 @@
                 </div>
             </div>
             <div class="row">
-                @foreach($courses as $course)
+                @foreach ($courses as $course)
                 <div class="col-lg-3 col-md-6 pb-4">
                     <a class="courses-list-item position-relative d-block overflow-hidden mb-2" href="{{}}">
                         <img class="img-fluid" src="{{asset('image/'.$course->image)}}" alt="">
@@ -178,149 +178,96 @@
 </div> --}}
     <!-- Courses End -->
 
-     <!-- Courses Start -->
-     <div class="container-fluid px-0 py-5">
-        <div class="row mx-0 justify-content-center pt-5">
-            <div class="col-lg-6">
-                <div class="section-title text-center position-relative mb-4">
-                    <h6 class="d-inline-block position-relative text-secondary text-uppercase pb-2">Our Courses</h6>
-                    <h1 class="display-4">Checkout New Releases Of Our Courses</h1>
-                </div>
-            </div>
-        </div>
-        <div class="owl-carousel courses-carousel">
-            <div class="courses-item position-relative">
-                <img class="img-fluid" src="img/courses-1.jpg" alt="">
-                <div class="courses-text">
-                    <h4 class="text-center text-white px-3">Programming with C for beginners</h4>
-                    <div class="border-top w-100 mt-3">
-
-                    </div>
-                    <div class="w-100 bg-white text-center p-4" >
-                        <a class="btn btn-primary" href="/course">Course Detail</a>
-                    </div>
-                </div>
-            </div>
-            <div class="courses-item position-relative">
-                <img class="img-fluid" src="img/courses-2.jpg" alt="">
-                <div class="courses-text">
-                    <h4 class="text-center text-white px-3">Programming with JAVA</h4>
-                    <div class="border-top w-100 mt-3">
-
-                    </div>
-                    <div class="w-100 bg-white text-center p-4" >
-                        <a class="btn btn-primary" href="/course">Course Detail</a>
-                    </div>
-                </div>
-            </div>
-            <div class="courses-item position-relative">
-                <img class="img-fluid" src="img/courses-3.jpg" alt="">
-                <div class="courses-text">
-                    <h4 class="text-center text-white px-3">Learning English</h4>
-                    <div class="border-top w-100 mt-3">
-
-                    </div>
-                    <div class="w-100 bg-white text-center p-4" >
-                        <a class="btn btn-primary" href="/course">Course Detail</a>
-                    </div>
-                </div>
-            </div>
-            <div class="courses-item position-relative">
-                <img class="img-fluid" src="img/courses-4.jpg" alt="">
-                <div class="courses-text">
-                    <h4 class="text-center text-white px-3">General Knowledge</h4>
-                    <div class="border-top w-100 mt-3">
-
-                    </div>
-                    <div class="w-100 bg-white text-center p-4" >
-                        <a class="btn btn-primary" href="/course">Course Detail</a>
-                    </div>
-                </div>
-            </div>
-            <div class="courses-item position-relative">
-                <img class="img-fluid" src="img/courses-5.jpg" alt="">
-                <div class="courses-text">
-                    <h4 class="text-center text-white px-3">Application Design & Development courses for beginners</h4>
-                    <div class="border-top w-100 mt-3">
-
-                    </div>
-                    <div class="w-100 bg-white text-center p-4" >
-                        <a class="btn btn-primary" href="/course">Course Detail</a>
-                    </div>
-                </div>
-            </div>
-            <div class="courses-item position-relative">
-                <img class="img-fluid" src="img/courses-6.jpg" alt="">
-                <div class="courses-text">
-                    <h4 class="text-center text-white px-3">Web design & development courses for beginners</h4>
-                    <div class="border-top w-100 mt-3">
-                    </div>
-                    <div class="w-100 bg-white text-center p-4" >
-                        <a class="btn btn-primary" href="/course">Course Detail</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-    </div>
-    <!-- Courses End -->
-
-
-
-    <!-- Team Start -->
+    <!-- Courses Start -->
     <div class="container-fluid py-5">
         <div class="container py-5">
-            <div class="section-title text-center position-relative mb-5">
-                <h6 class="d-inline-block position-relative text-secondary text-uppercase pb-2">Instructors</h6>
-                <h1 class="display-4">Meet Our Instructors</h1>
+            <div class="row mx-0 justify-content-center">
+                <div class="col-lg-8">
+                    <div class="section-title text-center position-relative mb-5">
+                        <h6 class="d-inline-block position-relative text-secondary text-uppercase pb-2">Our Courses</h6>
+                        <h1 class="display-4">Checkout New Releases Of Our Courses</h1>
+                    </div>
+                </div>
             </div>
-            <div class="owl-carousel team-carousel position-relative" style="padding: 0 30px;">
-                <div class="team-item">
-                    <img class="img-fluid w-100" src="img/irfan.png" alt="">
-                    <div class="bg-light text-center p-4">
-                        <h5 class="mb-3">Irfan Khan</h5>
-                        <p class="mb-2">Software Engineer</p>
-                        <div class="d-flex justify-content-center">
-                            <a class="mx-1 p-1" href="#"><i class="fab fa-twitter"></i></a>
-                            <a class="mx-1 p-1" href="#"><i class="fab fa-facebook-f"></i></a>
-                            <a class="mx-1 p-1" href="#"><i class="fab fa-linkedin-in"></i></a>
-                            <a class="mx-1 p-1" href="#"><i class="fab fa-instagram"></i></a>
-                            <a class="mx-1 p-1" href="#"><i class="fab fa-youtube"></i></a>
+            <div class="row">
+                @foreach ($courses as $course)
+                    <div class="col-lg-4 col-md-6 pb-4">
+                        <a class="courses-list-item position-relative d-block overflow-hidden mb-2"
+                            href="{{ route('detail', $course->id) }}">
+                            <img class="img-fluid" src="{{ asset('image/' . $course->image) }}" alt=""
+                                style="width: 500px; height: 400px;">
+                            <div class="courses-text">
+                                <h4 class="text-center text-white px-3">{{ $course->name }}</h4>
+                            </div>
+                        </a>
+                    </div>
+                @endforeach
+            </div>
+            <div class="row">
+                <div class="col-12">
+
+                    {{ $courses->links() }}
+
+                </div>
+            </div>
+        </div>
+
+
+
+        <!-- Team Start -->
+        <div class="container-fluid py-5">
+            <div class="container py-5">
+                <div class="section-title text-center position-relative mb-5">
+                    <h6 class="d-inline-block position-relative text-secondary text-uppercase pb-2">Instructors</h6>
+                    <h1 class="display-4">Meet Our Instructors</h1>
+                </div>
+                <div class="owl-carousel team-carousel position-relative" style="padding: 0 30px;">
+                    <div class="team-item">
+                        <img class="img-fluid w-100" src="img/irfan.png" alt="">
+                        <div class="bg-light text-center p-4">
+                            <h5 class="mb-3">Irfan Khan</h5>
+                            <p class="mb-2">Software Engineer</p>
+                            <div class="d-flex justify-content-center">
+                                <a class="mx-1 p-1" href="#"><i class="fab fa-twitter"></i></a>
+                                <a class="mx-1 p-1" href="#"><i class="fab fa-facebook-f"></i></a>
+                                <a class="mx-1 p-1" href="#"><i class="fab fa-linkedin-in"></i></a>
+                                <a class="mx-1 p-1" href="#"><i class="fab fa-instagram"></i></a>
+                                <a class="mx-1 p-1" href="#"><i class="fab fa-youtube"></i></a>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="team-item">
-                    <img class="img-fluid w-100" src="img/asmina.png" alt="">
-                    <div class="bg-light text-center p-4">
-                        <h5 class="mb-3">Asmina Airin</h5>
-                        <p class="mb-2">Web Designer</p>
-                        <div class="d-flex justify-content-center">
-                            <a class="mx-1 p-1" href="#"><i class="fab fa-twitter"></i></a>
-                            <a class="mx-1 p-1" href="#"><i class="fab fa-facebook-f"></i></a>
-                            <a class="mx-1 p-1" href="#"><i class="fab fa-linkedin-in"></i></a>
-                            <a class="mx-1 p-1" href="#"><i class="fab fa-instagram"></i></a>
-                            <a class="mx-1 p-1" href="#"><i class="fab fa-youtube"></i></a>
+                    <div class="team-item">
+                        <img class="img-fluid w-100" src="img/asmina.png" alt="">
+                        <div class="bg-light text-center p-4">
+                            <h5 class="mb-3">Asmina Airin</h5>
+                            <p class="mb-2">Web Designer</p>
+                            <div class="d-flex justify-content-center">
+                                <a class="mx-1 p-1" href="#"><i class="fab fa-twitter"></i></a>
+                                <a class="mx-1 p-1" href="#"><i class="fab fa-facebook-f"></i></a>
+                                <a class="mx-1 p-1" href="#"><i class="fab fa-linkedin-in"></i></a>
+                                <a class="mx-1 p-1" href="#"><i class="fab fa-instagram"></i></a>
+                                <a class="mx-1 p-1" href="#"><i class="fab fa-youtube"></i></a>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="team-item">
-                    <img class="img-fluid w-100" src="img/mehedi.png" alt="">
-                    <div class="bg-light text-center p-4">
-                        <h5 class="mb-3">Mehedi Hasan</h5>
-                        <p class="mb-2">Software Developer</p>
-                        <div class="d-flex justify-content-center">
-                            <a class="mx-1 p-1" href="#"><i class="fab fa-twitter"></i></a>
-                            <a class="mx-1 p-1" href="#"><i class="fab fa-facebook-f"></i></a>
-                            <a class="mx-1 p-1" href="#"><i class="fab fa-linkedin-in"></i></a>
-                            <a class="mx-1 p-1" href="#"><i class="fab fa-instagram"></i></a>
-                            <a class="mx-1 p-1" href="#"><i class="fab fa-youtube"></i></a>
+                    <div class="team-item">
+                        <img class="img-fluid w-100" src="img/mehedi.png" alt="">
+                        <div class="bg-light text-center p-4">
+                            <h5 class="mb-3">Mehedi Hasan</h5>
+                            <p class="mb-2">Software Developer</p>
+                            <div class="d-flex justify-content-center">
+                                <a class="mx-1 p-1" href="#"><i class="fab fa-twitter"></i></a>
+                                <a class="mx-1 p-1" href="#"><i class="fab fa-facebook-f"></i></a>
+                                <a class="mx-1 p-1" href="#"><i class="fab fa-linkedin-in"></i></a>
+                                <a class="mx-1 p-1" href="#"><i class="fab fa-instagram"></i></a>
+                                <a class="mx-1 p-1" href="#"><i class="fab fa-youtube"></i></a>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-    <!-- Team End -->
+        <!-- Team End -->
 
         <!-- Testimonial Start -->
         <div class="container-fluid bg-image py-5" style="margin: 90px 0;">
@@ -328,7 +275,8 @@
                 <div class="row align-items-center">
                     <div class="col-lg-5 mb-5 mb-lg-0">
                         <div class="section-title position-relative mb-4">
-                            <h6 class="d-inline-block position-relative text-secondary text-uppercase pb-2">Testimonial</h6>
+                            <h6 class="d-inline-block position-relative text-secondary text-uppercase pb-2">Testimonial
+                            </h6>
                             <h1 class="display-4">What Say About Our MEIRAS</h1>
                         </div>
                         <p class="m-0">
@@ -336,7 +284,8 @@
                             The user comment section can provide valuable feedback and insights into the user experience
                             of the MEIRAS platform. Users can share their opinions, suggestions, and concerns about the
                             platform, which can be used to improve the platform and make it more user-friendly.
-                            This feedback can also help to identify any issues or bugs that may be affecting the platform's functionality,
+                            This feedback can also help to identify any issues or bugs that may be affecting the platform's
+                            functionality,
                             allowing for prompt resolution.
                         </p>
                     </div>
@@ -344,7 +293,9 @@
                         <div class="owl-carousel testimonial-carousel">
                             <div class="bg-white p-5">
                                 <i class="fa fa-3x fa-quote-left text-primary mb-4"></i>
-                                <p>Sed et elitr ipsum labore dolor diam, ipsum duo vero sed sit est est ipsum eos clita est ipsum. Est nonumy tempor at kasd. Sed at dolor duo ut dolor, et justo erat dolor magna sed stet amet elitr duo lorem</p>
+                                <p>Sed et elitr ipsum labore dolor diam, ipsum duo vero sed sit est est ipsum eos clita est
+                                    ipsum. Est nonumy tempor at kasd. Sed at dolor duo ut dolor, et justo erat dolor magna
+                                    sed stet amet elitr duo lorem</p>
                                 <div class="d-flex flex-shrink-0 align-items-center mt-4">
                                     <img class="img-fluid mr-4" src="img/samsulsir.jpg" alt="">
                                     <div>
@@ -355,7 +306,9 @@
                             </div>
                             <div class="bg-white p-5">
                                 <i class="fa fa-3x fa-quote-left text-primary mb-4"></i>
-                                <p>Sed et elitr ipsum labore dolor diam, ipsum duo vero sed sit est est ipsum eos clita est ipsum. Est nonumy tempor at kasd. Sed at dolor duo ut dolor, et justo erat dolor magna sed stet amet elitr duo lorem</p>
+                                <p>Sed et elitr ipsum labore dolor diam, ipsum duo vero sed sit est est ipsum eos clita est
+                                    ipsum. Est nonumy tempor at kasd. Sed at dolor duo ut dolor, et justo erat dolor magna
+                                    sed stet amet elitr duo lorem</p>
                                 <div class="d-flex flex-shrink-0 align-items-center mt-4">
                                     <img class="img-fluid mr-4" src="img/sumonsir.jpg" alt="">
                                     <div>
@@ -414,34 +367,42 @@
                         </div>
                         <div class="contact-form">
                             @if (session()->has('successInbox'))
-                                <div class="alert alert-success">{{session('successInbox')}}</div>
+                                <div class="alert alert-success">{{ session('successInbox') }}</div>
                             @endif
-                            <form method="post" action="{{route('inbox.store')}}">
+                            <form method="post" action="{{ route('inbox.store') }}">
                                 @csrf
                                 <div class="row">
                                     <div class="col-6 form-group">
-                                        <input type="text" name="name" value="{{old('name')}}" class="form-control border-top-0 border-right-0 border-left-0 p-0" placeholder="Your Name"  required="required">
-                                            @error("name")
-                                            <div class="text-danger">{{$message}}</div>
-                                            @enderror
+                                        <input type="text" name="name" value="{{ old('name') }}"
+                                            class="form-control border-top-0 border-right-0 border-left-0 p-0"
+                                            placeholder="Your Name" required="required">
+                                        @error('name')
+                                            <div class="text-danger">{{ $message }}</div>
+                                        @enderror
                                     </div>
                                     <div class="col-6 form-group">
-                                        <input type="email" name="email" value="{{old('email')}}" class="form-control border-top-0 border-right-0 border-left-0 p-0" placeholder="Your Email" required="required">
-                                        @error("email")
-                                        <div class="text-danger">{{$message}}</div>
+                                        <input type="email" name="email" value="{{ old('email') }}"
+                                            class="form-control border-top-0 border-right-0 border-left-0 p-0"
+                                            placeholder="Your Email" required="required">
+                                        @error('email')
+                                            <div class="text-danger">{{ $message }}</div>
                                         @enderror
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <input type="text" name="subject" value="{{old('subject')}}" class="form-control border-top-0 border-right-0 border-left-0 p-0" placeholder="Subject" required="required">
-                                    @error("subject")
-                                    <div class="text-danger">{{$message}}</div>
+                                    <input type="text" name="subject" value="{{ old('subject') }}"
+                                        class="form-control border-top-0 border-right-0 border-left-0 p-0"
+                                        placeholder="Subject" required="required">
+                                    @error('subject')
+                                        <div class="text-danger">{{ $message }}</div>
                                     @enderror
                                 </div>
                                 <div class="form-group">
-                                    <textarea name="message" value="{{old('message')}}" class="form-control border-top-0 border-right-0 border-left-0 p-0" rows="5" placeholder="Message" required="required"></textarea>
-                                    @error("message")
-                                    <div class="text-danger">{{$message}}</div>
+                                    <textarea name="message" value="{{ old('message') }}"
+                                        class="form-control border-top-0 border-right-0 border-left-0 p-0" rows="5" placeholder="Message"
+                                        required="required"></textarea>
+                                    @error('message')
+                                        <div class="text-danger">{{ $message }}</div>
                                     @enderror
                                 </div>
                                 <div>
@@ -454,7 +415,4 @@
             </div>
         </div>
         <!-- Contact End -->
-
-
-@endsection
-
+    @endsection

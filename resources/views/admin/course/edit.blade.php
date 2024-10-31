@@ -1,4 +1,9 @@
 <x-app-layout>
+    @if (session('success'))
+        <div class="alert alert-success">
+            {{ session('success') }}
+        </div>
+    @endif
     <x-slot name="title">
         Edit Topic
     </x-slot>
@@ -26,6 +31,25 @@
                                 placeholder="Edit Course Name Here" required="">
 
                             @error('name')
+                                <p class="mt-2 text-sm text-red-600 dark:text-red-500"><span
+                                        class="font-medium">Error!</span> {{ $message }}</p>
+                            @enderror
+                        </div>
+
+                        <div class="mb-6">
+                            <label for="title"
+                                class="block mb-2 text-sm font-medium text-gray-900 @error('name') text-red-600 @enderror">
+                                Course Image
+                            </label>
+                            <input autofocus="true" type="file" id="name" name="image"
+                                class="form-control bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  @error('title') bg-red-50 border-red-500 text-red-900 placeholder-red-700 focus:ring-red-500 @enderror  "
+                                placeholder="image" required="">
+
+                                @if($skills->image)
+                                    <img src="{{ asset('image/' . $skills->image) }}" alt="Cousre Image" width="150">
+                                @endif
+
+                            @error('image')
                                 <p class="mt-2 text-sm text-red-600 dark:text-red-500"><span
                                         class="font-medium">Error!</span> {{ $message }}</p>
                             @enderror

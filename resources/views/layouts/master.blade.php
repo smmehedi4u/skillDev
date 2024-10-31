@@ -92,7 +92,7 @@
                     @auth
                     <div class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">
-                            <i class="fab fa-solid fa-user"></i>
+                            <i class="fas fa-user"></i>
                                 {{auth()->user()->name}}
 
                         </a>
