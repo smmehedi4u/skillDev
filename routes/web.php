@@ -1,15 +1,11 @@
 <?php
 
 use App\Models\Skill;
-use App\Models\Topic;
-use App\Models\Question;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
-use Illuminate\Support\Facades\Redirect;
 use App\Http\Controllers\InboxController;
 use App\Http\Controllers\SkillController;
+use App\Http\Controllers\QuestionController;
 
 use App\Http\Controllers\TopicController;
 use App\Http\Controllers\ProfileController;
@@ -39,46 +35,9 @@ Route::view('testimonial', 'home.testimonial');
 Route::view('contact', 'home.contact');
 
 Route::post("/inbox/create", [InboxController::class, "store"])->name("inbox.store");
-
-Route::get('/course', function (Request $request) {
-    $courses = Skill::when($request->q, function ($query) use ($request) {
-        return $query->where("name", "like", "%" . $request->q . "%");
-    })->paginate(12);
-    $q = $request->q;
-    //dd($books);
-    return view('home.course', compact("courses", "q"));
-})->name('course');
-
-
-Route::get('/detail/{id}', function (Request $request, $id) {
-    $topics = Topic::where("skill_id", $id)->get();
-
-
-    $page = $request->topic_id ?? Topic::where("skill_id", $id)->first()->id;
-
-    $data = Topic::with(["question", "skill"])->find($page);
-
-
-    // dd($data->question()->get());
-    return view('home.pages', compact("topics", "data"));
-})->name('detail');
-
-Route::post('/detail/{id}', function (Request $request, $id) {
-
-    if (!Auth::check()) {
-        return redirect()->route('login')->with('error', 'You must be logged in to submit an answer.');
-    }
-
-    $q_id = $request->q_id;
-    $selected_option = $request->answer; // Selected option, either 1 or 2
-    // dd($selected_option);
-    $question = Question::find($q_id);
-
-    if ($question->answer == $selected_option) {
-        return Redirect::back()->with("success", "Answer is correct!");
-    }
-    return Redirect::back()->with("error", "Wrong answer.</b>");
-})->name('detail.post');
+Route::get('/course', [QuestionController::class, 'course'])->name('course');
+Route::get('/detail/{id}', [QuestionController::class, 'detail'])->name('detail');
+Route::post('/detail/{id}', [QuestionController::class, 'submitAnswer'])->name('detail.post');
 
 
 Route::get('/dashboard', [DashboardController::class, 'index'])->middleware(['auth'])->name('dashboard');

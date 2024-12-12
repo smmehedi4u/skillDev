@@ -2,8 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Skill;
 use App\Models\Topic;
+use App\Models\Question;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Redirect;
 
 class HomeController extends Controller
 {
@@ -23,4 +27,5 @@ class HomeController extends Controller
     {
         return redirect(route("user.dashboard"));
     }
+
 }
